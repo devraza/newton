@@ -15,7 +15,28 @@ def fail():
     print("-1")
     sys.exit()
 
-check = False
+def zero_replace(combined, placements):
+    if placements[0] != 0:
+        options = [
+            combined[idx-m]-1,
+            combined[idx-1]-1
+        ]
+
+        minimum = min(range(len(options)), key=lambda x: options[x])
+    
+        diff_forward = abs(combined[idx-1]-combined[idx+m]) == 1
+        diff_backward = abs(combined[idx+1]-combined[idx-m]) == 1
+
+        if diff_forward or diff_backward:
+            fail()
+
+        if minimum == 1:
+            combined[idx] = options[minimum]
+        elif minimum == 0:
+            combined[idx] = placements[0]-1
+    else:
+        combined[idx] = combined[idx-1]-1
+
 for idx, i in enumerate(combined):
     if i == 0:
         placements = [combined[idx-m], combined[idx+m]]
@@ -24,24 +45,7 @@ for idx, i in enumerate(combined):
             fail()
 
         if abs(combined[idx+1]-combined[idx-1]) != 1:
-            if placements[0] != 0:
-                options = [
-                    combined[idx-m]-1,
-                    combined[idx-1]-1
-                ]
-
-                minimum = min(range(len(options)), key=lambda x: options[x])
-
-                if (abs(combined[idx-1]-combined[idx+m]) == 1) or (abs(combined[idx+1]-combined[idx-m]) == 1):
-                    print("-1")
-                    sys.exit()
-
-                if minimum == 1:
-                    combined[idx] = options[minimum]
-                elif minimum == 0:
-                    combined[idx] = placements[0]-1
-            else:
-                combined[idx] = combined[idx-1]-1
+            zero_replace(combined, placements)
         else:
             fail()
 
