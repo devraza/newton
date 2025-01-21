@@ -8,7 +8,7 @@ fn main() {
     let mut s = String::new();
     io::stdin().read_line(&mut s).unwrap();
 
-    let a = s.trim().split_whitespace().map(|n| n.parse::<u64>().unwrap()).collect::<Vec<u64>>();
+    let a = s.split_whitespace().map(|n| n.parse::<u64>().unwrap()).collect::<Vec<u64>>();
 
     let mut maximum = 1;
     let mut count = 1;

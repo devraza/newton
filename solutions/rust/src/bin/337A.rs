@@ -4,14 +4,14 @@ fn main() {
     let mut s = String::new();
     io::stdin().read_line(&mut s).unwrap();
 
-    let a = s.trim().split_whitespace().map(|s| s.parse::<u64>().unwrap()).collect::<Vec<u64>>();
+    let a = s.split_whitespace().map(|s| s.parse::<u64>().unwrap()).collect::<Vec<u64>>();
     let n: usize = a[0] as usize;
     let m: usize = a[1] as usize;
 
     let mut s = String::new();
     io::stdin().read_line(&mut s).unwrap();
 
-    let mut f = s.trim().split_whitespace().map(|s| s.parse::<u64>().unwrap()).collect::<Vec<u64>>();
+    let mut f = s.split_whitespace().map(|s| s.parse::<u64>().unwrap()).collect::<Vec<u64>>();
 
     f.sort();
 

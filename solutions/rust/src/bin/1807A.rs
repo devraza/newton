@@ -8,7 +8,7 @@ fn main() {
         let mut n = String::new();
         io::stdin().read_line(&mut n).unwrap();
 
-        let array = n.trim().split_whitespace().collect::<Vec<&str>>();
+        let array = n.split_whitespace().collect::<Vec<&str>>();
     
         let mut int_array: Vec<i8> = vec![];
         for i in array {

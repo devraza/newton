@@ -4,7 +4,7 @@ fn main() {
     let mut s = String::new();
     io::stdin().read_line(&mut s).unwrap();
 
-    let a = s.trim().split_whitespace().map(|i| i.parse::<i64>().unwrap()).collect::<Vec<i64>>();
+    let a = s.split_whitespace().map(|i| i.parse::<i64>().unwrap()).collect::<Vec<i64>>();
     let mut n = a[0];
     let mut m = a[1];
 

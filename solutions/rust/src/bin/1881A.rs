@@ -12,11 +12,7 @@ fn share_char(a: &str, b: &str) -> bool {
                 subcheck = true;
             }
         }
-        if subcheck == false {
-            check = false;
-        } else {
-            check = true;
-        }
+        check = subcheck;
     }
     check
 }
@@ -31,7 +27,7 @@ fn main() {
         let mut nm = String::new();
         io::stdin().read_line(&mut nm).unwrap();
 
-        let nm_vec: Vec<&str> = nm.trim().split_whitespace().collect();
+        let nm_vec: Vec<&str> = nm.split_whitespace().collect();
 
         let mut nm_array: [u64; 2] = [0, 0];
         for i in 0..=1 {
@@ -39,21 +35,21 @@ fn main() {
         }
 
         let mut string_vec: [String; 2] = [String::new(), String::new()];
-        for i in 0..=1 {
+        for i in &mut string_vec {
             let mut string = String::new();
             io::stdin().read_line(&mut string).unwrap();
-            string_vec[i] = string.trim().to_string();
+            *i = string.trim().to_string();
         }
         strings.push(string_vec);
     }
 
-    for i in 0..strings.len() {
-        if !share_char(&strings[i][0], &strings[i][1]) {
+    for i in &mut strings {
+        if !share_char(&i[0], &i[1]) {
             println!("-1");
         } else {
             let mut counter = 0;
-            while !strings[i][0].contains(&strings[i][1]) {
-                strings[i][0] = strings[i][0].repeat(2);
+            while !i[0].contains(&i[1]) {
+                i[0] = i[0].repeat(2);
                 counter += 1;
                 if counter > 25 {
                     counter = 0;

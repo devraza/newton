@@ -21,13 +21,13 @@ fn main() {
         for j in original {
             match j {
                 'q' => {
-                    new.push_str("p");
+                    new.push('p');
                 },
                 'p' => {
-                    new.push_str("q");
+                    new.push('q');
                 },
                 _ => {
-                    new.push_str("w");
+                    new.push('w');
                 }
             }
         }

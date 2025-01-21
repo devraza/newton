@@ -9,7 +9,7 @@ fn main() {
     let mut p = String::new();
     io::stdin().read_line(&mut p).unwrap();
 
-    let drinks = p.trim().split_whitespace().map(|c| c.parse::<u64>().unwrap()).collect::<Vec<u64>>();
+    let drinks = p.split_whitespace().map(|c| c.parse::<u64>().unwrap()).collect::<Vec<u64>>();
 
     let conc = drinks.iter().sum::<u64>() as f64 / n as f64;
 
