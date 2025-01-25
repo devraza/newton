@@ -2,8 +2,12 @@ package main
 
 import (
         "encoding/json"
+        "path/filepath"
         "fmt"
+        "strings"
+        "io/fs"
         "io"
+        "os"
         "log"
         "net/http"
 )
@@ -34,6 +38,19 @@ type ProblemStatistics struct {
         SolvedCount int    `json:"solvedCount"`
 }
 
+var files []string
+
+func visit(path string, d fs.DirEntry, err error) error {
+    if err != nil {
+        return err
+    }
+    if d.IsDir() && d.Name() == "target" {
+      return filepath.SkipDir
+    }
+    files = append(files, strings.TrimSuffix(d.Name(), filepath.Ext(d.Name())))
+    return nil
+}
+
 func main() {
         resp, err := http.Get("https://codeforces.com/api/problemset.problems")
 
@@ -52,7 +69,34 @@ func main() {
                 log.Fatalln(err)
         }
 
+        err = filepath.WalkDir("../solutions", visit)
+
+        var solved []string
+
         for _, p := range response.Result.Problems {
-                fmt.Printf("%v", p.Name)
+          for _, i := range files {
+            if i == fmt.Sprintf("%v%v", p.ContestId, p.Index) {
+              text := fmt.Sprintf("- [%v%v %v](https://codeforces.com/problemset/problem/%v/%v)", p.ContestId, p.Index, p.Name, p.ContestId, p.Index)
+              solved = append(solved, text)
+              continue
+            }
+          }
         }
+
+	      file, err := os.Create("../README.md")
+	        if err != nil {
+		        fmt.Println("Error creating file:", err)
+		        return
+	        }
+	      defer file.Close()
+
+        file.WriteString("# Code Forces Solutions\nMy set of solutions to the problems on Code Forces.\n## Solutions\n")
+
+	     	for _, line := range solved {
+		      _, err := file.WriteString(line + "\n")
+		      if err != nil {
+			      fmt.Println("Error writing to file:", err)
+			    return
+		    }
+	}
 }
