@@ -75,8 +75,9 @@ func main() {
 
 	for _, p := range response.Result.Problems {
 		for _, i := range files {
-			if i == fmt.Sprintf("%v%v", p.ContestId, p.Index) {
-				text := fmt.Sprintf("- [%v%v %v](https://codeforces.com/problemset/problem/%v/%v)", p.ContestId, p.Index, p.Name, p.ContestId, p.Index)
+      combined := fmt.Sprintf("%v%v", p.ContestId, p.Index)
+			if i == combined {
+				text := fmt.Sprintf("- [%v %v](https://codeforces.com/problemset/problem/%v/%v)", combined, p.Name, p.ContestId, p.Index)
 				solved = append(solved, text)
 				continue
 			}
