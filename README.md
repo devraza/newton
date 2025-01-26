@@ -61,5 +61,6 @@ My set of solutions to the problems on Code Forces.
 - [58A Chat room](https://codeforces.com/problemset/problem/58/A)
 - [43A Football](https://codeforces.com/problemset/problem/43/A)
 - [34B Sale](https://codeforces.com/problemset/problem/34/B)
+- [25A IQ test](https://codeforces.com/problemset/problem/25/A)
 - [4A Watermelon](https://codeforces.com/problemset/problem/4/A)
 - [1A Theatre Square](https://codeforces.com/problemset/problem/1/A)
