@@ -91,7 +91,7 @@ func main() {
 	}
 	defer file.Close()
 
-	file.WriteString("# Code Forces Solutions\nMy set of solutions to the problems on Code Forces.\n## Solutions\n")
+	file.WriteString("# Newton\nMy set of solutions to the problems on Code Forces.\n## Solutions\n")
 
 	for _, line := range solved {
 		_, err := file.WriteString(line + "\n")

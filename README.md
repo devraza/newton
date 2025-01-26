@@ -1,4 +1,4 @@
-# Code Forces Solutions
+# Newton
 My set of solutions to the problems on Code Forces.
 ## Solutions
 - [2044B Normal Problem](https://codeforces.com/problemset/problem/2044/B)
