@@ -47,7 +47,6 @@ My set of solutions to the problems on Code Forces.
 - [236A Boy or Girl](https://codeforces.com/problemset/problem/236/A)
 - [230A Dragons](https://codeforces.com/problemset/problem/230/A)
 - [208A Dubstep](https://codeforces.com/problemset/problem/208/A)
-- [208A Dubstep](https://codeforces.com/problemset/problem/208/A)
 - [200B Drinks](https://codeforces.com/problemset/problem/200/B)
 - [160A Twins](https://codeforces.com/problemset/problem/160/A)
 - [133A HQ9+](https://codeforces.com/problemset/problem/133/A)
