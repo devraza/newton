@@ -12,5 +12,5 @@ fn main() {
         count += 1;
     }
 
-    println!("{}", count); 
+    println!("{}", count);
 }

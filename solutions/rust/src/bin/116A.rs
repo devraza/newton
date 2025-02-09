@@ -11,9 +11,12 @@ fn main() {
         let mut s = String::new();
         io::stdin().read_line(&mut s).unwrap();
 
-        let s: Vec<i64> = s.split_whitespace().map(|d| d.parse::<i64>().unwrap()).collect();
+        let s: Vec<i64> = s
+            .split_whitespace()
+            .map(|d| d.parse::<i64>().unwrap())
+            .collect();
 
-        people += s[1]-s[0];
+        people += s[1] - s[0];
 
         if people > maximum {
             maximum = people;

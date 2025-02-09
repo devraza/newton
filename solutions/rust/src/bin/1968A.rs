@@ -3,7 +3,7 @@ use std::io;
 fn gcd(a: u64, b: u64) -> u64 {
     let mut set: [u64; 2] = [a, b];
     while set[1] != 0 {
-        set = [set[1], set[0]%set[1]];
+        set = [set[1], set[0] % set[1]];
     }
     set[0]
 }
@@ -25,7 +25,7 @@ fn main() {
         let mut maximum = 0;
         let mut y = 0;
         for j in 1..i {
-            let found = gcd(i,j)+j;
+            let found = gcd(i, j) + j;
             if found > maximum {
                 y = j;
                 maximum = found;

@@ -22,10 +22,10 @@ fn main() {
             match j {
                 'q' => {
                     new.push('p');
-                },
+                }
                 'p' => {
                     new.push('q');
-                },
+                }
                 _ => {
                     new.push('w');
                 }

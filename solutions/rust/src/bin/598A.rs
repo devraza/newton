@@ -14,7 +14,7 @@ fn main() {
 
         let n: i64 = s.trim().parse().unwrap();
 
-        total += n*(n+1)/2;
+        total += n * (n + 1) / 2;
 
         let mut exponent = 0;
         while 2_i64.pow(exponent) <= n {
@@ -25,5 +25,4 @@ fn main() {
         println!("{}", total);
         total = 0;
     }
-
 }
